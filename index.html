@@ -1010,21 +1010,21 @@
             <div class="form-label" data-i18n="labelPlan"></div>
             <div class="plan-grid">
               <div class="plan-option">
-                <input type="radio" name="plan" id="starter" value="starter">
+                <input type="radio" name="plan" id="starter" value="starter" onchange="updateCalc()">
                 <label for="starter">
                   <span class="plan-name">Starter</span>
                   <span class="plan-price" id="priceStarter"></span>
                 </label>
               </div>
               <div class="plan-option">
-                <input type="radio" name="plan" id="mini" value="mini">
+                <input type="radio" name="plan" id="mini" value="mini" onchange="updateCalc()">
                 <label for="mini">
                   <span class="plan-name">Mini</span>
                   <span class="plan-price" id="priceMini"></span>
                 </label>
               </div>
               <div class="plan-option">
-                <input type="radio" name="plan" id="business" value="business" checked>
+                <input type="radio" name="plan" id="business" value="business" checked onchange="updateCalc()">
                 <label for="business">
                   <span class="plan-name">Business</span>
                   <span class="plan-price" id="priceBusiness"></span>
@@ -1032,7 +1032,7 @@
                 <span class="plan-popular" data-i18n="planHit"></span>
               </div>
               <div class="plan-option">
-                <input type="radio" name="plan" id="pro" value="pro">
+                <input type="radio" name="plan" id="pro" value="pro" onchange="updateCalc()">
                 <label for="pro">
                   <span class="plan-name">Pro</span>
                   <span class="plan-price" id="pricePro"></span>
