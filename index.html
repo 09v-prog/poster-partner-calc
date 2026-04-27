@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Партнерская программа — Poster POS Казахстан</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    /* Poster POS color system */
+    --poster-green: #00b956;
+    --poster-green-hover: #00a34c;
+    --poster-green-dark: #009244;
+    --poster-green-light: #e6f7ed;
+    --poster-green-bg: #f3fbf6;
+
+    /* Brand blue (Partner CTA — joinposter.com partner page) */
+    --poster-blue: #2c8aef;
+    --poster-blue-hover: #1e7fdf;
+    --poster-blue-dark: #1872cc;
+    --poster-blue-light: #e7f1fe;
+
+    --text-primary: #1a1a1a;
+    --text-body: #404040;
+    --text-secondary: #6b6b6b;
+    --text-muted: #9a9a9a;
+
+    --border: #e6e6e6;
+    --border-light: #f0f0f0;
+    --bg-page: #ffffff;
+    --bg-section: #f7f8fa;
+    --bg-card: #ffffff;
+
+    --shadow-xs: 0 1px 2px rgba(20,20,20,0.04);
+    --shadow-sm: 0 2px 8px rgba(20,20,20,0.05);
+    --shadow-md: 0 4px 16px rgba(20,20,20,0.06);
+    --shadow-lg: 0 12px 32px rgba(20,20,20,0.08);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-pill: 100px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-primary);
+    background: var(--bg-page);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; }
+
+  /* ===== TOP BAR ===== */
+  .topbar {
+    background: var(--text-primary);
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    padding: 8px 0;
+  }
+  .topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .topbar-left { display: flex; gap: 18px; align-items: center; }
+  .topbar-left a { color: rgba(255,255,255,0.7); transition: color 0.15s; }
+  .topbar-left a:hover { color: white; }
+  .topbar-right { display: flex; gap: 14px; align-items: center; font-weight: 500; }
+  .topbar-right a { color: white; }
+  .topbar-right .topbar-phone { color: var(--poster-green); font-weight: 600; }
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .navbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    gap: 24px;
+  }
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .navbar-logo img { display: block; height: 36px; width: auto; }
+
+  .nav-menu {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+    justify-content: center;
+  }
+  .nav-link {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-body);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .nav-link:hover { color: var(--poster-green); background: var(--poster-green-bg); }
+  .nav-link svg { width: 12px; height: 12px; opacity: 0.5; }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .lang-switch {
+    display: flex;
+    background: var(--bg-section);
+    border-radius: var(--radius-pill);
+    padding: 3px;
+    gap: 2px;
+  }
+  .lang-btn {
+    padding: 5px 12px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+  }
+  .lang-btn.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-ghost {
+    color: var(--text-primary);
+    background: transparent;
+  }
+  .btn-ghost:hover { background: var(--bg-section); }
+  .btn-primary {
+    background: var(--poster-blue);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--poster-blue-hover);
+    box-shadow: 0 6px 20px rgba(44,138,239,0.32);
+    transform: translateY(-1px);
+  }
+  .btn-lg { padding: 14px 28px; font-size: 15px; }
+
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .mobile-toggle svg { width: 22px; height: 22px; }
+
+  @media (max-width: 1023px) {
+    .nav-menu { display: none; }
+  }
+  @media (max-width: 640px) {
+    .topbar { display: none; }
+    .navbar-inner { height: 62px; }
+    .navbar-logo img { height: 30px; }
+    .nav-actions .btn-ghost { display: none; }
+  }
+
+  /* ===== HERO (light) ===== */
+  .hero {
+    position: relative;
+    padding: 72px 24px 48px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 800px 500px at 90% 0%, rgba(0,185,86,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 600px 400px at 10% 100%, rgba(0,185,86,0.05) 0%, transparent 70%),
+      var(--bg-page);
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--poster-green-light);
+    color: var(--poster-green-dark);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--poster-green);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    letter-spacing: -1.5px;
+    color: var(--text-primary);
+  }
+  .hero h1 span {
+    color: var(--poster-green);
+    position: relative;
+    white-space: nowrap;
+  }
+  .hero h1 span::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 4px;
+    height: 8px;
+    background: var(--poster-green-light);
+    z-index: -1;
+    border-radius: 4px;
+  }
+  .hero p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border-light);
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-stat-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.8px;
+  }
+  .hero-stat-num span { color: var(--poster-green); }
+  .hero-stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== CALCULATOR ===== */
+  .calc-section { padding: 32px 0 80px; }
+  .calc-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .calc-header {
+    background: linear-gradient(135deg, var(--text-primary) 0%, #2a2a2a 100%);
+    color: white;
+    padding: 24px 36px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .calc-header::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -10%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,185,86,0.15) 0%, transparent 60%);
+  }
+  .calc-header-icon {
+    width: 44px; height: 44px;
+    background: rgba(0,185,86,0.18);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .calc-header-icon svg { width: 22px; height: 22px; color: #5be096; }
+  .calc-header-text { position: relative; }
+  .calc-header-title { font-size: 18px; font-weight: 700; line-height: 1.2; margin-bottom: 2px; }
+  .calc-header-sub { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+  .calc-body {
+    padding: 40px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 860px) {
+    .calc-body { grid-template-columns: 1fr; gap: 32px; padding: 28px 22px; }
+  }
+
+  /* Form Controls */
+  .form-group { margin-bottom: 24px; }
+  .form-group:last-child { margin-bottom: 0; }
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 12px;
+  }
+
+  .plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .plan-option { position: relative; }
+  .plan-option input { display: none; }
+  .plan-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 8px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+    background: var(--bg-card);
+  }
+  .plan-option label:hover {
+    border-color: var(--poster-green);
+    background: var(--poster-green-bg);
+  }
+  .plan-option input:checked + label {
+    border-color: var(--poster-green);
+    background: var(--poster-green-light);
+    box-shadow: 0 0 0 4px rgba(0,185,86,0.08);
+  }
+  .plan-name { font-weight: 700; font-size: 15px; color: var(--text-primary); margin-bottom: 2px; }
+  .plan-price { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+  .plan-popular {
+    position: absolute;
+    top: -8px; right: -4px;
+    background: var(--poster-green);
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    z-index: 1;
+  }
+
+  /* Toggle buttons */
+  .toggle-group {
+    display: flex;
+    background: var(--bg-section);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    gap: 3px;
+    border: 1px solid var(--border);
+  }
+  .toggle-btn {
+    flex: 1;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  .toggle-btn.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-xs);
+  }
+  .toggle-btn:hover:not(.active) { color: var(--text-primary); }
+  .toggle-badge {
+    display: inline-block;
+    background: var(--poster-green);
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  /* Slider */
+  .slider-container { position: relative; }
+  .slider-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+  }
+  .slider-number {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--poster-green);
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .slider-unit { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px; height: 22px;
+    background: var(--poster-green);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,185,86,0.4);
+    border: 3px solid white;
+    transition: transform 0.1s;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  input[type="range"]::-moz-range-thumb {
+    width: 22px; height: 22px;
+    background: var(--poster-green);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,185,86,0.4);
+  }
+
+  /* Results Panel */
+  .results-panel { display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+  .result-main {
+    background: linear-gradient(135deg, var(--text-primary) 0%, #2a2a2a 100%);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .result-main::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -20%;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(0,185,86,0.15) 0%, transparent 60%);
+  }
+  .result-main > * { position: relative; }
+  .result-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .result-amount {
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 900;
+    color: #5be096;
+    line-height: 1.05;
+    margin-bottom: 4px;
+    letter-spacing: -1.5px;
+  }
+  .result-currency { font-size: 15px; color: rgba(255,255,255,0.5); font-weight: 500; }
+  .result-sub {
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .result-sub-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .result-sub-value { font-size: 20px; font-weight: 800; color: white; }
+
+  .breakdown-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .breakdown-card {
+    background: var(--bg-section);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    border: 1px solid var(--border-light);
+  }
+  .breakdown-card-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .breakdown-card-value { font-size: 16px; font-weight: 800; color: var(--text-primary); }
+
+  /* ===== SECTIONS ===== */
+  .section { padding: 80px 24px; }
+  .section-gray { background: var(--bg-section); }
+  .section-title { text-align: center; margin-bottom: 48px; }
+  .section-title h2 {
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    line-height: 1.15;
+  }
+  .section-title p { font-size: 16px; color: var(--text-secondary); max-width: 580px; margin: 0 auto; }
+
+  /* Advantages */
+  .advantages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 860px) { .advantages-grid { grid-template-columns: 1fr; } }
+  .advantage-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 32px 28px;
+    transition: all 0.2s;
+  }
+  .advantage-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: var(--poster-green);
+  }
+  .advantage-icon {
+    width: 48px; height: 48px;
+    background: var(--poster-green-light);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .advantage-icon svg { width: 24px; height: 24px; color: var(--poster-green); }
+  .advantage-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .advantage-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* Pricing Table */
+  .pricing-table-wrap {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .pricing-table thead th {
+    background: var(--bg-section);
+    color: var(--text-primary);
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pricing-table thead th:first-child { text-align: left; }
+  .pricing-table tbody td {
+    padding: 16px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+  }
+  .pricing-table tbody td:first-child { text-align: left; font-weight: 600; color: var(--text-body); }
+  .pricing-table tbody tr:last-child td { border-bottom: none; }
+  .pricing-table tbody tr:hover { background: var(--poster-green-bg); }
+  .table-highlight { background: var(--poster-green-bg); }
+  .price-cell { font-weight: 600; color: var(--text-primary); }
+  .commission-cell { font-weight: 800; color: var(--poster-green-dark); font-size: 15px !important; }
+  @media (max-width: 600px) {
+    .pricing-table { font-size: 11px; }
+    .pricing-table thead th, .pricing-table tbody td { padding: 10px 8px; }
+  }
+
+  /* Chart */
+  .projection-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 40px 28px 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .projection-chart { width: 100%; height: 280px; position: relative; margin-top: 24px; }
+  .chart-canvas { width: 100%; height: 100%; }
+
+  /* How It Works */
+  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  @media (max-width: 860px) { .steps-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .steps-grid { grid-template-columns: 1fr; } }
+  .step-card {
+    text-align: center;
+    padding: 32px 22px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .step-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--poster-green);
+  }
+  .step-number {
+    width: 44px; height: 44px;
+    background: var(--poster-green);
+    color: white;
+    border-radius: var(--radius-md);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(0,185,86,0.25);
+  }
+  .step-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .step-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  .faq-item:hover { border-color: #d0d0d0; }
+  .faq-item.open { border-color: var(--poster-green); box-shadow: 0 0 0 4px rgba(0,185,86,0.06); }
+  .faq-question {
+    padding: 20px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: background 0.15s;
+    color: var(--text-primary);
+  }
+  .faq-question:hover { background: var(--bg-section); }
+  .faq-arrow {
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    margin-left: 14px;
+    color: var(--text-muted);
+  }
+  .faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+    color: var(--poster-green);
+  }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
+  .faq-answer-inner {
+    padding: 0 24px 22px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Manager Card */
+  .manager-section { padding: 0 24px 80px; }
+  .manager-card {
+    max-width: 880px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 36px;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  .manager-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,185,86,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  @media (max-width: 640px) {
+    .manager-card { grid-template-columns: 1fr; padding: 28px 24px; gap: 20px; text-align: center; }
+  }
+  .manager-photo {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, var(--poster-green) 0%, var(--poster-green-dark) 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0,185,86,0.25);
+    margin: 0 auto;
+  }
+  .manager-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+  .manager-photo-fallback {
+    color: white;
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -2px;
+  }
+  .manager-info { position: relative; z-index: 1; }
+  .manager-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--poster-green-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .manager-label::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--poster-green);
+    border-radius: 50%;
+  }
+  .manager-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.6px;
+    margin-bottom: 6px;
+  }
+  .manager-role {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+  }
+  .manager-contacts {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 640px) {
+    .manager-contacts { justify-content: center; }
+  }
+  .manager-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+  .manager-contact svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .manager-contact-phone {
+    background: var(--text-primary);
+    color: white;
+  }
+  .manager-contact-phone:hover {
+    background: #000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .manager-contact-wa {
+    background: #25d366;
+    color: white;
+  }
+  .manager-contact-wa:hover {
+    background: #1ebe5d;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37,211,102,0.32);
+  }
+  .manager-contact-tg {
+    background: #0088cc;
+    color: white;
+  }
+  .manager-contact-tg:hover {
+    background: #0077b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,136,204,0.32);
+  }
+
+  /* CTA */
+  .cta-section { padding: 0 24px 80px; }
+  .cta-card {
+    background: linear-gradient(135deg, var(--text-primary) 0%, #1f1f1f 50%, var(--poster-green-dark) 200%);
+    border-radius: var(--radius-xl);
+    padding: 64px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 70%; height: 200%;
+    background: radial-gradient(circle, rgba(0,185,86,0.15) 0%, transparent 60%);
+  }
+  .cta-card::after {
+    content: '';
+    position: absolute;
+    bottom: -50%; left: -20%;
+    width: 60%; height: 180%;
+    background: radial-gradient(circle, rgba(0,185,86,0.08) 0%, transparent 60%);
+  }
+  .cta-card > * { position: relative; z-index: 1; }
+  .cta-card h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -1px;
+  }
+  .cta-card p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Minimal Footer */
+  .footer-min {
+    background: var(--bg-section);
+    padding: 28px 24px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-min-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .footer-min-inner img { height: 24px; width: auto; opacity: 0.85; }
+
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="https://joinposter.kz" target="_blank">Казахстан</a>
+      <a href="https://knowledge-base.joinposter.com/ru/" target="_blank" data-i18n="topbarKB"></a>
+      <a href="https://joinposter.com/blog" target="_blank" data-i18n="topbarBlog"></a>
+    </div>
+    <div class="topbar-right">
+      <a href="tel:+77001555111" class="topbar-phone">+7 700 155-51-11</a>
+      <span data-i18n="topbarHours" style="color:rgba(255,255,255,0.5);"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="https://joinposter.kz" class="navbar-logo" target="_blank">
+      <img src="https://joinposter.com/i/site/img/logo.png" alt="Poster" />
+    </a>
+
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('ru')">Рус</button>
+        <button class="lang-btn" onclick="setLang('kz')">Қаз</button>
+      </div>
+      <a href="https://joinposter.com/ru/login" class="btn btn-ghost" target="_blank" data-i18n="navLogin"></a>
+      <a href="https://joinposter.com/ru/signup" class="btn btn-primary" target="_blank" data-i18n="navTry"></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge" data-i18n="heroBadge"></div>
+    <h1 data-i18n-html="heroTitle"></h1>
+    <p data-i18n="heroSubtitle"></p>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num"><span>30%</span></div>
+        <div class="hero-stat-label" data-i18n="stat1"></div>
+      </div>
+      <div>
+        <div class="hero-stat-num">27 000<span></span></div>
+        <div class="hero-stat-label" data-i18n="stat2"></div>
+      </div>
+      <div>
+        <div class="hero-stat-num">12<span> мес</span></div>
+        <div class="hero-stat-label" data-i18n="stat3"></div>
+      </div>
+      <div>
+        <div class="hero-stat-num">24/7</div>
+        <div class="hero-stat-label" data-i18n="stat4"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Calculator -->
+<section class="calc-section">
+  <div class="container">
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="18" x2="16" y2="18"/></svg>
+        </div>
+        <div class="calc-header-text">
+          <div class="calc-header-title" data-i18n="calcTitle"></div>
+          <div class="calc-header-sub" data-i18n="calcSub"></div>
+        </div>
+      </div>
+
+      <div class="calc-body">
+        <div>
+          <div class="form-group">
+            <div class="form-label" data-i18n="labelPlan"></div>
+            <div class="plan-grid">
+              <div class="plan-option">
+                <input type="radio" name="plan" id="starter" value="starter">
+                <label for="starter">
+                  <span class="plan-name">Starter</span>
+                  <span class="plan-price" id="priceStarter"></span>
+                </label>
+              </div>
+              <div class="plan-option">
+                <input type="radio" name="plan" id="mini" value="mini">
+                <label for="mini">
+                  <span class="plan-name">Mini</span>
+                  <span class="plan-price" id="priceMini"></span>
+                </label>
+              </div>
+              <div class="plan-option">
+                <input type="radio" name="plan" id="business" value="business" checked>
+                <label for="business">
+                  <span class="plan-name">Business</span>
+                  <span class="plan-price" id="priceBusiness"></span>
+                </label>
+                <span class="plan-popular" data-i18n="planHit"></span>
+              </div>
+              <div class="plan-option">
+                <input type="radio" name="plan" id="pro" value="pro">
+                <label for="pro">
+                  <span class="plan-name">Pro</span>
+                  <span class="plan-price" id="pricePro"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label" data-i18n="labelBilling"></div>
+            <div class="toggle-group">
+              <button class="toggle-btn active" data-billing="annual" onclick="setBilling('annual')">
+                <span data-i18n="billingYear"></span> <span class="toggle-badge" data-i18n="billingBadge"></span>
+              </button>
+              <button class="toggle-btn" data-billing="monthly" onclick="setBilling('monthly')">
+                <span data-i18n="billingMonth"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label" data-i18n="labelClients"></div>
+            <div class="slider-container">
+              <div class="slider-value">
+                <span class="slider-number" id="clientCount">5</span>
+                <span class="slider-unit" data-i18n="unitClients"></span>
+              </div>
+              <input type="range" id="clientSlider" min="1" max="50" value="5" oninput="updateCalc()">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label" data-i18n="labelPeriod"></div>
+            <div class="toggle-group">
+              <button class="toggle-btn" data-period="3" onclick="setPeriod(3)"><span data-i18n="period3"></span></button>
+              <button class="toggle-btn active" data-period="12" onclick="setPeriod(12)"><span data-i18n="period12"></span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-panel">
+          <div class="result-main">
+            <div class="result-label" data-i18n="resultLabel"></div>
+            <div class="result-amount" id="totalReward">315 900</div>
+            <div class="result-currency" data-i18n="currencyName"></div>
+            <div class="result-sub">
+              <div>
+                <div class="result-sub-label" data-i18n="perClientLabel"></div>
+                <div class="result-sub-value" id="perClient">63 180 ₸</div>
+              </div>
+              <div>
+                <div class="result-sub-label" data-i18n="perMonthLabel"></div>
+                <div class="result-sub-value" id="perMonth">26 325 ₸</div>
+              </div>
+            </div>
+          </div>
+          <div class="breakdown-cards">
+            <div class="breakdown-card">
+              <div class="breakdown-card-label" data-i18n="bkRate"></div>
+              <div class="breakdown-card-value">30%</div>
+            </div>
+            <div class="breakdown-card">
+              <div class="breakdown-card-label" data-i18n="bkPrice"></div>
+              <div class="breakdown-card-value" id="planPrice">21 060 ₸</div>
+            </div>
+            <div class="breakdown-card">
+              <div class="breakdown-card-label" data-i18n="bkPeriod"></div>
+              <div class="breakdown-card-value" id="periodDisplay">12</div>
+            </div>
+            <div class="breakdown-card">
+              <div class="breakdown-card-label" data-i18n="bkPayout"></div>
+              <div class="breakdown-card-value" data-i18n="bkPayoutVal"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Advantages -->
+<section class="section section-gray">
+  <div class="container">
+    <div class="section-title">
+      <h2 data-i18n="advTitle"></h2>
+      <p data-i18n="advSubtitle"></p>
+    </div>
+    <div class="advantages-grid">
+      <div class="advantage-card">
+        <div class="advantage-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 data-i18n="adv1Title"></h3>
+        <p data-i18n="adv1Text"></p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 data-i18n="adv2Title"></h3>
+        <p data-i18n="adv2Text"></p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 data-i18n="adv3Title"></h3>
+        <p data-i18n="adv3Text"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Table -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2 data-i18n="tableTitle"></h2>
+      <p data-i18n="tableSubtitle"></p>
+    </div>
+    <div class="pricing-table-wrap">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th data-i18n="thPlan"></th>
+            <th data-i18n="thAnnual"></th>
+            <th data-i18n="thMonthly"></th>
+            <th data-i18n="thComm3"></th>
+            <th data-i18n="thComm12"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Starter</td>
+            <td class="price-cell">8 640 ₸</td>
+            <td class="price-cell">9 600 ₸</td>
+            <td class="commission-cell">7 776 ₸</td>
+            <td class="commission-cell">31 104 ₸</td>
+          </tr>
+          <tr>
+            <td>Mini</td>
+            <td class="price-cell">15 660 ₸</td>
+            <td class="price-cell">17 400 ₸</td>
+            <td class="commission-cell">14 094 ₸</td>
+            <td class="commission-cell">56 376 ₸</td>
+          </tr>
+          <tr class="table-highlight">
+            <td><strong>Business</strong> <span style="color:var(--poster-green); font-size:11px; margin-left:4px;">● <span data-i18n="planHit"></span></span></td>
+            <td class="price-cell">21 060 ₸</td>
+            <td class="price-cell">23 400 ₸</td>
+            <td class="commission-cell">18 954 ₸</td>
+            <td class="commission-cell">75 816 ₸</td>
+          </tr>
+          <tr>
+            <td>Pro</td>
+            <td class="price-cell">31 860 ₸</td>
+            <td class="price-cell">35 400 ₸</td>
+            <td class="commission-cell">28 674 ₸</td>
+            <td class="commission-cell">114 696 ₸</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Growth Projection -->
+<section class="section section-gray">
+  <div class="container">
+    <div class="section-title">
+      <h2 data-i18n="chartTitle"></h2>
+      <p data-i18n="chartSubtitle"></p>
+    </div>
+    <div class="projection-card">
+      <div class="projection-chart">
+        <canvas class="chart-canvas" id="projectionChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2 data-i18n="howTitle"></h2>
+      <p data-i18n="howSubtitle"></p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 data-i18n="step1Title"></h3>
+        <p data-i18n="step1Text"></p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 data-i18n="step2Title"></h3>
+        <p data-i18n="step2Text"></p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 data-i18n="step3Title"></h3>
+        <p data-i18n="step3Text"></p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3 data-i18n="step4Title"></h3>
+        <p data-i18n="step4Text"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-gray">
+  <div class="container">
+    <div class="section-title">
+      <h2 data-i18n="faqTitle"></h2>
+      <p data-i18n="faqSubtitle"></p>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- Personal Manager -->
+<section class="manager-section">
+  <div class="manager-card">
+    <div class="manager-photo">
+      <img src="f5.jpeg" alt="Khairullin Zhuman" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="manager-photo-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">KZ</div>
+    </div>
+    <div class="manager-info">
+      <div class="manager-label" data-i18n="mgrLabel"></div>
+      <div class="manager-name">Khairullin Zhuman</div>
+      <div class="manager-role" data-i18n="mgrRole"></div>
+      <div class="manager-contacts">
+        <a href="tel:+77077910888" class="manager-contact manager-contact-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 707 791-08-88
+        </a>
+        <a href="https://wa.me/77077910888" target="_blank" class="manager-contact manager-contact-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.79.97h.01a7.94 7.94 0 0 0 7.94-7.93 7.88 7.88 0 0 0-2.34-5.62zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 0 1-1.01-3.5 6.6 6.6 0 0 1 6.6-6.6 6.55 6.55 0 0 1 4.66 1.94 6.55 6.55 0 0 1 1.93 4.67 6.6 6.6 0 0 1-6.58 6.58zm3.62-4.93c-.2-.1-1.18-.58-1.36-.65-.18-.07-.31-.1-.45.1s-.51.65-.63.78c-.12.14-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.59-.53-.99-1.18-1.11-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.14.03-.26-.02-.35-.05-.1-.45-1.08-.61-1.48-.16-.39-.33-.34-.45-.34l-.39-.01a.75.75 0 0 0-.54.25c-.18.2-.71.7-.71 1.7s.73 1.97.83 2.11c.1.14 1.43 2.18 3.46 3.06.48.21.86.33 1.16.43.49.16.93.13 1.28.08.39-.06 1.18-.48 1.35-.95.16-.47.16-.86.12-.95-.05-.09-.18-.14-.38-.24z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://t.me/+77077910888" target="_blank" class="manager-contact manager-contact-tg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.36 18.7 19.65c-.24 1.08-.88 1.35-1.78.84l-4.92-3.63-2.37 2.29c-.27.27-.5.5-1 .5l.36-5.05L18.18 6.4c.4-.36-.09-.56-.62-.2L7.16 12.84l-4.85-1.52c-1.06-.34-1.08-1.06.22-1.57L20.6 2.94c.88-.32 1.65.21 1.34 1.42z"/></svg>
+          Telegram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-card">
+    <h2 data-i18n="ctaTitle"></h2>
+    <p data-i18n="ctaText"></p>
+    <a href="https://joinposter.com/partner" class="btn btn-primary btn-lg" target="_blank">
+      <span data-i18n="ctaBtn"></span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Minimal Footer -->
+<footer class="footer-min">
+  <div class="footer-min-inner">
+    <img src="https://joinposter.com/i/site/img/logo.png" alt="Poster" />
+    <span data-i18n="ftrCopy"></span>
+  </div>
+</footer>
+
+<script>
+// ===== I18N DATA =====
+const i18n = {
+  ru: {
+    topbarKB: 'База знаний',
+    topbarBlog: 'Блог',
+    topbarHours: '· Круглосуточно',
+    navFeatures: 'Возможности',
+    navSolutions: 'Решения',
+    navHardware: 'Оборудование',
+    navPricing: 'Цены',
+    navPartner: 'Партнёрам',
+    navLogin: 'Войти',
+    navTry: 'Попробовать',
+
+    heroBadge: 'Партнёрская программа · Казахстан',
+    heroTitle: 'Зарабатывайте <span>30%</span> с каждого клиента Poster',
+    heroSubtitle: 'Рекомендуйте Poster POS — POS-систему, которой пользуются 27 000 заведений в 100 странах — и получайте вознаграждение за каждого привлечённого клиента в Казахстане.',
+    stat1: 'комиссия от подписки',
+    stat2: 'заведений в 100 странах',
+    stat3: 'выплаты за клиента',
+    stat4: 'поддержка партнёров',
+
+    calcTitle: 'Калькулятор партнёрского вознаграждения',
+    calcSub: 'Узнайте, сколько вы заработаете на привлечении клиентов',
+    labelPlan: 'Тарифный план клиента',
+    planHit: 'Хит',
+    labelBilling: 'Оплата клиента',
+    billingYear: 'За год',
+    billingBadge: 'выгоднее',
+    billingMonth: 'За месяц',
+    labelClients: 'Количество привлечённых клиентов',
+    unitClients: 'клиентов',
+    labelPeriod: 'Период начисления комиссии',
+    period3: '3 месяца',
+    period12: '12 месяцев',
+    resultLabel: 'Ваше вознаграждение',
+    currencyName: 'тенге',
+    perClientLabel: 'За 1 клиента',
+    perMonthLabel: 'В месяц',
+    bkRate: 'Ставка комиссии',
+    bkPrice: 'Цена тарифа/мес',
+    bkPeriod: 'Период комиссии',
+    bkPayout: 'Выплата',
+    bkPayoutVal: 'ежеквартально',
+
+    advTitle: 'Преимущества партнёрства',
+    advSubtitle: 'Почему стоит стать партнёром Poster POS в Казахстане',
+    adv1Title: 'Высокие комиссионные',
+    adv1Text: 'Получайте 30% от суммы подписки каждого привлечённого клиента в течение первых 3 или 12 месяцев. Без потолка по доходу.',
+    adv2Title: '27 000 заведений в 100 странах',
+    adv2Text: 'Poster POS — проверенная система, которой пользуются 27 000 заведений по всему миру. Лёгкий и понятный продукт для рекомендации.',
+    adv3Title: 'Персональный менеджер',
+    adv3Text: 'Получите личного менеджера, обучающие материалы, маркетинговую поддержку и доступ к закрытым вебинарам команды Poster.',
+
+    tableTitle: 'Тарифы и вознаграждение',
+    tableSubtitle: 'Сколько вы заработаете за каждого клиента на каждом тарифе',
+    thPlan: 'Тариф',
+    thAnnual: 'Цена/мес (год)',
+    thMonthly: 'Цена/мес',
+    thComm3: 'Комиссия 3 мес',
+    thComm12: 'Комиссия 12 мес',
+
+    chartTitle: 'Прогноз заработка',
+    chartSubtitle: 'Если привлекать по 3 клиента ежемесячно на тариф Business (за год)',
+
+    howTitle: 'Как это работает',
+    howSubtitle: 'Четыре простых шага к стабильному пассивному доходу',
+    step1Title: 'Зарегистрируйтесь',
+    step1Text: 'Заполните форму на сайте и получите доступ к партнёрскому кабинету',
+    step2Title: 'Пройдите обучение',
+    step2Text: 'Изучите продукт и получите сертификат партнёра Poster',
+    step3Title: 'Рекомендуйте',
+    step3Text: 'Привлекайте новых клиентов — кафе, рестораны, магазины',
+    step4Title: 'Получайте деньги',
+    step4Text: '30% комиссии начисляется автоматически и выплачивается ежеквартально',
+
+    faqTitle: 'Частые вопросы',
+    faqSubtitle: 'Всё, что нужно знать о партнёрской программе Poster',
+
+    mgrLabel: 'Ваш персональный менеджер',
+    mgrRole: 'Партнёрская программа Poster POS · Казахстан. Свяжитесь со мной любым удобным способом — отвечу на все ваши вопросы.',
+
+    ctaTitle: 'Готовы зарабатывать с Poster?',
+    ctaText: 'Присоединяйтесь к партнёрской программе и начните получать пассивный доход уже сегодня',
+    ctaBtn: 'Стать партнёром',
+
+    footerAbout: 'Облачная POS-система для автоматизации кафе, ресторанов и магазинов. Уже 50 000+ заведений в 9 странах.',
+    footerHours: 'Круглосуточно · Поддержка 24/7',
+    ftrPosterPos: 'Poster POS',
+    ftrTour: 'Тур по продукту',
+    ftrPricing: 'Цены',
+    ftrHardware: 'Оборудование',
+    ftrDownload: 'Скачать кассу',
+    ftrAddons: 'Дополнения',
+    ftrLearn: 'Обучение',
+    ftrKB: 'База знаний',
+    ftrWebinars: 'Вебинары',
+    ftrAcademy: 'Академия Poster',
+    ftrBlog: 'Блог о бизнесе',
+    ftrCompany: 'Компания',
+    ftrAbout: 'О нас',
+    ftrPartners: 'Партнёрам',
+    ftrCases: 'Кейсы клиентов',
+    ftrContacts: 'Контакты',
+    ftrCopy: '© 2026 Poster POS Inc. Партнёрский калькулятор',
+    ftrTerms: 'Соглашение',
+    ftrPrivacy: 'Конфиденциальность',
+    ftrCookies: 'Cookies',
+
+    pricePrefix: 'от ',
+    priceSuffix: ' ₸/мес',
+    periodSuffix: ' мес',
+    chartMonth: 'мес ',
+    faq: [
+      { q: 'Сколько я могу заработать как партнёр?', a: 'Вы получаете 30% от суммы подписки каждого привлечённого клиента. Например, если ваш клиент оплатил тариф Business за год — вы получите 75 816 ₸ за одного клиента. Чем больше клиентов — тем больше доход. Лимита по заработку нет.' },
+      { q: 'Как и когда выплачивается вознаграждение?', a: 'Выплаты осуществляются ежеквартально на ваш личный или корпоративный банковский счёт. Минимальная сумма для выплаты — эквивалент $100. Если сумма меньше, она накапливается и никогда не сгорает.' },
+      { q: 'Что такое период комиссии 3 или 12 месяцев?', a: 'Вы получаете 30% от платежей клиента в течение первых 3 или 12 месяцев после его подключения — в зависимости от условий вашего партнёрского соглашения. После окончания этого периода комиссия за этого клиента больше не начисляется.' },
+      { q: 'Кто может стать партнёром?', a: 'Интеграторы, консалтинговые агентства, компании по продаже оборудования для HoReCa, фрилансеры — любой, кто работает с ресторанами, кафе и магазинами. Нужно пройти короткое обучение и получить сертификат партнёра.' },
+      { q: 'Можно ли стать дилером и получать до 50%?', a: 'Да! Если вы выполняете план по привлечению клиентов, вы можете получить статус дилера с комиссией до 50%. Детали обсуждаются с вашим персональным менеджером.' },
+      { q: 'Нужно ли подписывать договор?', a: 'Мы работаем по публичной оферте, поэтому заключать бумажный договор необязательно. Если вам нужен отдельный договор — напишите нам, и мы его подготовим.' }
+    ]
+  },
+  kz: {
+    topbarKB: 'Білім базасы',
+    topbarBlog: 'Блог',
+    topbarHours: '· Тәулік бойы',
+    navFeatures: 'Мүмкіндіктер',
+    navSolutions: 'Шешімдер',
+    navHardware: 'Жабдық',
+    navPricing: 'Бағалар',
+    navPartner: 'Серіктестерге',
+    navLogin: 'Кіру',
+    navTry: 'Тегін көру',
+
+    heroBadge: 'Серіктестік бағдарлама · Қазақстан',
+    heroTitle: 'Әр Poster клиентінен <span>30%</span> табыс табыңыз',
+    heroSubtitle: '100 елдегі 27 000 мекеме қолданатын Poster POS жүйесін ұсыныңыз және Қазақстандағы әрбір тартылған клиент үшін сыйақы алыңыз.',
+    stat1: 'жазылымнан комиссия',
+    stat2: '100 елдегі мекемелер',
+    stat3: 'клиент үшін төлемдер',
+    stat4: 'серіктестерге қолдау',
+
+    calcTitle: 'Серіктестік сыйақы калькуляторы',
+    calcSub: 'Клиенттерді тартудан қанша табыс табатыныңызды біліңіз',
+    labelPlan: 'Клиенттің тарифтік жоспары',
+    planHit: 'Хит',
+    labelBilling: 'Клиенттің төлемі',
+    billingYear: 'Жылдық',
+    billingBadge: 'тиімді',
+    billingMonth: 'Айлық',
+    labelClients: 'Тартылған клиенттер саны',
+    unitClients: 'клиент',
+    labelPeriod: 'Комиссия есептелу кезеңі',
+    period3: '3 ай',
+    period12: '12 ай',
+    resultLabel: 'Сіздің сыйақыңыз',
+    currencyName: 'теңге',
+    perClientLabel: '1 клиент үшін',
+    perMonthLabel: 'Айына',
+    bkRate: 'Комиссия мөлшерлемесі',
+    bkPrice: 'Тариф бағасы/ай',
+    bkPeriod: 'Комиссия кезеңі',
+    bkPayout: 'Төлем',
+    bkPayoutVal: 'тоқсан сайын',
+
+    advTitle: 'Серіктестіктің артықшылықтары',
+    advSubtitle: 'Қазақстанда неліктен Poster POS серіктесі болу керек',
+    adv1Title: 'Жоғары комиссиялар',
+    adv1Text: 'Алғашқы 3 немесе 12 ай ішінде әрбір тартылған клиенттің жазылым сомасынан 30% алыңыз. Табыс шегі жоқ.',
+    adv2Title: '100 елде 27 000 мекеме',
+    adv2Text: 'Poster POS — әлем бойынша 27 000 мекеме қолданатын сенімді жүйе. Ұсынуға оңай және түсінікті өнім.',
+    adv3Title: 'Жеке менеджер',
+    adv3Text: 'Жеке менеджер, оқу материалдары, маркетингтік қолдау және Poster командасынан жабық вебинарларға қол жеткізу.',
+
+    tableTitle: 'Тарифтер мен сыйақы',
+    tableSubtitle: 'Әр тарифтегі клиент үшін қанша табыс табасыз',
+    thPlan: 'Тариф',
+    thAnnual: 'Баға/ай (жыл)',
+    thMonthly: 'Баға/ай',
+    thComm3: 'Комиссия 3 ай',
+    thComm12: 'Комиссия 12 ай',
+
+    chartTitle: 'Табыс болжамы',
+    chartSubtitle: 'Ай сайын Business тарифіне 3 клиент тартсаңыз (жылдық)',
+
+    howTitle: 'Қалай жұмыс істейді',
+    howSubtitle: 'Тұрақты пассивті табысқа жеткізетін төрт қарапайым қадам',
+    step1Title: 'Тіркеліңіз',
+    step1Text: 'Сайттағы нысанды толтырып, серіктестік кабинетке кіруге қол жеткізіңіз',
+    step2Title: 'Оқудан өтіңіз',
+    step2Text: 'Өнімді зерттеп, Poster серіктесі сертификатын алыңыз',
+    step3Title: 'Ұсыныңыз',
+    step3Text: 'Жаңа клиенттерді тартыңыз — кафелер, мейрамханалар, дүкендер',
+    step4Title: 'Ақша алыңыз',
+    step4Text: '30% комиссия автоматты түрде есептеліп, тоқсан сайын төленеді',
+
+    faqTitle: 'Жиі қойылатын сұрақтар',
+    faqSubtitle: 'Poster серіктестік бағдарламасы туралы білуге қажетті барлығы',
+
+    mgrLabel: 'Сіздің жеке менеджеріңіз',
+    mgrRole: 'Poster POS серіктестік бағдарламасы · Қазақстан. Қандай да бір ыңғайлы жолмен хабарласыңыз — барлық сұрақтарыңызға жауап беремін.',
+
+    ctaTitle: 'Poster-мен табыс табуға дайынсыз ба?',
+    ctaText: 'Серіктестік бағдарламаға қосылып, бүгіннен бастап пассивті табыс табыңыз',
+    ctaBtn: 'Серіктес болу',
+
+    footerAbout: 'Кафелер, мейрамханалар мен дүкендерді автоматтандыруға арналған бұлттық POS-жүйе. 9 елдегі 50 000+ мекеме қолданады.',
+    footerHours: 'Тәулік бойы · Қолдау 24/7',
+    ftrPosterPos: 'Poster POS',
+    ftrTour: 'Өнім туры',
+    ftrPricing: 'Бағалар',
+    ftrHardware: 'Жабдық',
+    ftrDownload: 'Касса жүктеу',
+    ftrAddons: 'Қосымшалар',
+    ftrLearn: 'Оқыту',
+    ftrKB: 'Білім базасы',
+    ftrWebinars: 'Вебинарлар',
+    ftrAcademy: 'Poster Академиясы',
+    ftrBlog: 'Бизнес блогы',
+    ftrCompany: 'Компания',
+    ftrAbout: 'Біз туралы',
+    ftrPartners: 'Серіктестерге',
+    ftrCases: 'Клиент кейстері',
+    ftrContacts: 'Байланыс',
+    ftrCopy: '© 2026 Poster POS Inc. Серіктестік калькулятор',
+    ftrTerms: 'Келісім',
+    ftrPrivacy: 'Құпиялық',
+    ftrCookies: 'Cookies',
+
+    pricePrefix: '',
+    priceSuffix: ' ₸/ай-дан',
+    periodSuffix: ' ай',
+    chartMonth: ' ай',
+    faq: [
+      { q: 'Серіктес ретінде қанша табыс таба аламын?', a: 'Сіз әрбір тартылған клиенттің жазылым сомасынан 30% аласыз. Мысалы, клиентіңіз Business тарифін жылдық төлесе — бір клиент үшін 75 816 ₸ аласыз. Клиент көп болған сайын — табыс та көп. Табыс шегі жоқ.' },
+      { q: 'Сыйақы қалай және қашан төленеді?', a: 'Төлемдер тоқсан сайын жеке немесе корпоративтік банктік шотыңызға аударылады. Төлемнің ең аз сомасы — $100 эквиваленті. Сома аз болса, ол жинақталады және ешқашан жойылмайды.' },
+      { q: '3 немесе 12 айлық комиссия кезеңі дегеніміз не?', a: 'Сіз клиент қосылғаннан кейінгі алғашқы 3 немесе 12 ай ішінде оның төлемдерінен 30% аласыз — серіктестік келісім шарттарына байланысты. Бұл кезең аяқталғаннан кейін осы клиент үшін комиссия есептелмейді.' },
+      { q: 'Кім серіктес бола алады?', a: 'Интеграторлар, консалтинг агенттіктері, HoReCa жабдықтарын сататын компаниялар, фрилансерлер — мейрамханалармен, кафелермен және дүкендермен жұмыс істейтін кез келген адам. Қысқа оқудан өтіп, серіктес сертификатын алу қажет.' },
+      { q: 'Дилер болып, 50%-ға дейін алуға бола ма?', a: 'Иә! Клиенттерді тарту жоспарын орындасаңыз, 50%-ға дейін комиссиямен дилер мәртебесін ала аласыз. Толық ақпарат жеке менеджеріңізбен талқыланады.' },
+      { q: 'Шарт жасасу керек пе?', a: 'Біз жария оферта бойынша жұмыс істейміз, сондықтан қағаз шарт жасасу міндетті емес. Жеке шарт қажет болса — бізге жазыңыз, біз оны дайындаймыз.' }
+    ]
+  }
+};
+
+// ===== STATE =====
+let currentLang = 'ru';
+let currentPeriod = 12;
+let currentBilling = 'annual';
+
+const plans = {
+  starter:  { annual: 8640,  monthly: 9600 },
+  mini:     { annual: 15660, monthly: 17400 },
+  business: { annual: 21060, monthly: 23400 },
+  pro:      { annual: 31860, monthly: 35400 }
+};
+
+// ===== HELPERS =====
+function fmt(n) {
+  return Math.round(n).toLocaleString('ru-RU').replace(/ /g, ' ').replace(/,/g, ' ');
+}
+
+function t(key) { return i18n[currentLang][key] || key; }
+
+// ===== LANGUAGE =====
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.trim() === (lang === 'ru' ? 'Рус' : 'Қаз'));
+  });
+  document.documentElement.lang = lang === 'ru' ? 'ru' : 'kk';
+  applyTranslations();
+  buildFaq();
+  updateCalc();
+}
+
+function applyTranslations() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    el.innerHTML = t(el.dataset.i18nHtml);
+  });
+}
+
+// ===== FAQ =====
+function buildFaq() {
+  const list = document.getElementById('faqList');
+  const faqs = t('faq');
+  list.innerHTML = faqs.map(f => `
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>${f.q}</span>
+        <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">${f.a}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const answer = item.querySelector('.faq-answer');
+  if (item.classList.contains('open')) {
+    item.classList.remove('open');
+    answer.style.maxHeight = '0';
+  } else {
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+// ===== CALCULATOR =====
+function setBilling(type) {
+  currentBilling = type;
+  document.querySelectorAll('[data-billing]').forEach(b => {
+    b.classList.toggle('active', b.dataset.billing === type);
+  });
+  updateCalc();
+}
+
+function setPeriod(months) {
+  currentPeriod = months;
+  document.querySelectorAll('[data-period]').forEach(b => {
+    b.classList.toggle('active', parseInt(b.dataset.period) === months);
+  });
+  updateCalc();
+}
+
+function updateCalc() {
+  const plan = document.querySelector('input[name="plan"]:checked').value;
+  const clients = parseInt(document.getElementById('clientSlider').value);
+  const price = plans[plan][currentBilling];
+
+  const perClientReward = price * currentPeriod * 0.30;
+  const total = perClientReward * clients;
+  const perMonthReward = total / currentPeriod;
+
+  document.getElementById('clientCount').textContent = clients;
+  document.getElementById('totalReward').textContent = fmt(total);
+  document.getElementById('perClient').textContent = fmt(perClientReward) + ' ₸';
+  document.getElementById('perMonth').textContent = fmt(perMonthReward) + ' ₸';
+  document.getElementById('planPrice').textContent = fmt(price) + ' ₸';
+  document.getElementById('periodDisplay').textContent = currentPeriod + t('periodSuffix');
+
+  // Update plan prices
+  ['starter','mini','business','pro'].forEach(p => {
+    const el = document.getElementById('price' + p.charAt(0).toUpperCase() + p.slice(1));
+    if (el) el.textContent = t('pricePrefix') + fmt(plans[p][currentBilling]) + t('priceSuffix');
+  });
+
+  // Slider fill
+  const slider = document.getElementById('clientSlider');
+  const pct = ((clients - 1) / 49) * 100;
+  slider.style.background = `linear-gradient(to right, var(--poster-green) 0%, var(--poster-green) ${pct}%, var(--border) ${pct}%, var(--border) 100%)`;
+
+  drawChart();
+}
+
+// ===== CHART =====
+function drawChart() {
+  const canvas = document.getElementById('projectionChart');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+
+  canvas.width = canvas.offsetWidth * dpr;
+  canvas.height = canvas.offsetHeight * dpr;
+  ctx.scale(dpr, dpr);
+
+  const w = canvas.offsetWidth;
+  const h = canvas.offsetHeight;
+
+  const plan = document.querySelector('input[name="plan"]:checked').value;
+  const price = plans[plan][currentBilling];
+  const reward = price * currentPeriod * 0.30;
+
+  const months = 12;
+  const data = [];
+  let cum = 0;
+  for (let i = 1; i <= months; i++) { cum += 3 * reward; data.push(cum); }
+
+  const max = data[months - 1];
+  const pT = 36, pB = 36, pL = 80, pR = 24;
+  const cW = w - pL - pR;
+  const cH = h - pT - pB;
+
+  ctx.clearRect(0, 0, w, h);
+
+  // Grid
+  ctx.strokeStyle = '#f0f0f0';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pT + (cH / 4) * i;
+    ctx.beginPath(); ctx.moveTo(pL, y); ctx.lineTo(w - pR, y); ctx.stroke();
+    ctx.fillStyle = '#9ca3af';
+    ctx.font = '11px Inter, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(fmt(max - (max / 4) * i) + ' ₸', pL - 10, y + 4);
+  }
+
+  // X labels
+  const monthLabel = t('chartMonth');
+  ctx.textAlign = 'center';
+  for (let i = 0; i < months; i++) {
+    const x = pL + (cW / (months - 1)) * i;
+    ctx.fillStyle = '#9ca3af';
+    ctx.font = '11px Inter, sans-serif';
+    const label = currentLang === 'kz' ? (i + 1) + monthLabel : monthLabel + (i + 1);
+    ctx.fillText(label, x, h - 10);
+  }
+
+  // Area
+  ctx.beginPath();
+  ctx.moveTo(pL, pT + cH);
+  for (let i = 0; i < months; i++) {
+    const x = pL + (cW / (months - 1)) * i;
+    const y = pT + cH - (data[i] / max) * cH;
+    if (i === 0) ctx.lineTo(x, y);
+    else {
+      const px = pL + (cW / (months - 1)) * (i - 1);
+      const py = pT + cH - (data[i - 1] / max) * cH;
+      ctx.bezierCurveTo((px + x) / 2, py, (px + x) / 2, y, x, y);
+    }
+  }
+  ctx.lineTo(pL + cW, pT + cH);
+  ctx.closePath();
+  const gr = ctx.createLinearGradient(0, pT, 0, pT + cH);
+  gr.addColorStop(0, 'rgba(0,185,86,0.25)');
+  gr.addColorStop(1, 'rgba(0,185,86,0.01)');
+  ctx.fillStyle = gr;
+  ctx.fill();
+
+  // Line
+  ctx.beginPath();
+  for (let i = 0; i < months; i++) {
+    const x = pL + (cW / (months - 1)) * i;
+    const y = pT + cH - (data[i] / max) * cH;
+    if (i === 0) ctx.moveTo(x, y);
+    else {
+      const px = pL + (cW / (months - 1)) * (i - 1);
+      const py = pT + cH - (data[i - 1] / max) * cH;
+      ctx.bezierCurveTo((px + x) / 2, py, (px + x) / 2, y, x, y);
+    }
+  }
+  ctx.strokeStyle = '#00b956';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // Dots
+  for (let i = 0; i < months; i++) {
+    const x = pL + (cW / (months - 1)) * i;
+    const y = pT + cH - (data[i] / max) * cH;
+    ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#00b956'; ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5; ctx.stroke();
+  }
+
+  // End label
+  const lx = pL + cW;
+  const ly = pT + cH - (data[months - 1] / max) * cH;
+  ctx.fillStyle = '#1a1a1a';
+  ctx.font = 'bold 13px Inter, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText(fmt(data[months - 1]) + ' ₸', lx, ly - 14);
+}
+
+// ===== INIT =====
+applyTranslations();
+buildFaq();
+updateCalc();
+window.addEventListener('resize', drawChart);
+</script>
+</body>
+</html>
