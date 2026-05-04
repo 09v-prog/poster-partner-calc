@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster + Ailillu — Ресторан 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: #FF5A1F;
+    --primary-dark: #E8430A;
+    --secondary: #6366F1;
+    --accent: #10B981;
+    --dark: #0F172A;
+    --gray-900: #1E293B;
+    --gray-700: #334155;
+    --gray-500: #64748B;
+    --gray-300: #CBD5E1;
+    --gray-100: #F1F5F9;
+    --gray-50: #F8FAFC;
+    --white: #FFFFFF;
+    --gradient: linear-gradient(135deg, #FF5A1F 0%, #6366F1 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(255,90,31,0.08) 0%, rgba(99,102,241,0.08) 100%);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+    z-index: 100;
+    padding: 16px 0;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 20px;
+  }
+
+  .logo-dot {
+    width: 32px;
+    height: 32px;
+    background: var(--gradient);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--gray-700);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--primary); }
+
+  .lang-switch { display: flex; gap: 4px; background: var(--gray-100); padding: 4px; border-radius: 8px; }
+  .lang-switch a { padding: 4px 10px; font-size: 12px; font-weight: 700; border-radius: 6px; }
+  .lang-switch a.active { background: white; color: var(--primary); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+
+  @media (max-width: 768px) {
+    .nav-links a:not(.btn):not(.lang-link) { display: none; }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 4px 14px rgba(255,90,31,0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255,90,31,0.4);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--dark);
+    border: 1.5px solid var(--gray-300);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 100px;
+    background:
+      radial-gradient(ellipse at top right, rgba(99,102,241,0.08), transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(255,90,31,0.08), transparent 50%);
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: var(--gradient-soft);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 .gradient {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 20px;
+    color: var(--gray-500);
+    max-width: 640px;
+    margin-bottom: 36px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+
+  /* HERO MOCKUP - two screens */
+  .hero-mockup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-mockup { grid-template-columns: 1fr; }
+  }
+
+  .screen {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(15,23,42,0.12);
+    overflow: hidden;
+    border: 1px solid var(--gray-100);
+    position: relative;
+  }
+
+  .screen-header {
+    padding: 12px 16px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 600;
+  }
+
+  .screen-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+
+  .dot.r { background: #FF5F57; }
+  .dot.y { background: #FFBD2E; }
+  .dot.g { background: #27C93F; }
+
+  .screen-body {
+    padding: 24px;
+    min-height: 360px;
+  }
+
+  /* Ailillu screen */
+  .ailillu-chat .ai-bubble,
+  .ailillu-chat .user-bubble {
+    padding: 12px 16px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    max-width: 85%;
+    font-size: 14px;
+    line-height: 1.5;
+    animation: slideIn 0.4s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .ailillu-chat .ai-bubble {
+    background: var(--gradient-soft);
+    color: var(--dark);
+    border: 1px solid rgba(99,102,241,0.15);
+    border-bottom-left-radius: 4px;
+  }
+
+  .ailillu-chat .user-bubble {
+    background: var(--gray-100);
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+  }
+
+  .ailillu-chat .ai-bubble:nth-child(1) { animation-delay: 0.2s; }
+  .ailillu-chat .user-bubble:nth-child(2) { animation-delay: 0.6s; }
+  .ailillu-chat .ai-bubble:nth-child(3) { animation-delay: 1s; }
+  .ailillu-chat .user-bubble:nth-child(4) { animation-delay: 1.4s; }
+  .ailillu-chat .ai-bubble:nth-child(5) { animation-delay: 1.8s; }
+
+  .order-summary {
+    margin-top: 16px;
+    padding: 14px;
+    background: var(--gray-50);
+    border-radius: 12px;
+    font-size: 13px;
+    border: 1px dashed var(--gray-300);
+  }
+
+  .order-summary .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  .order-summary .total {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--gray-300);
+    font-weight: 700;
+  }
+
+  /* Poster screen */
+  .poster-dash {
+    font-size: 13px;
+  }
+
+  .poster-dash h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    background: rgba(16,185,129,0.1);
+    color: var(--accent);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .live-pill::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .order-card {
+    padding: 12px 14px;
+    border: 1px solid var(--gray-100);
+    border-left: 3px solid var(--primary);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: white;
+  }
+
+  .order-card.new { border-left-color: var(--accent); background: rgba(16,185,129,0.03); }
+  .order-card.cooking { border-left-color: #F59E0B; }
+
+  .order-card .order-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .order-card .order-meta {
+    font-size: 11px;
+    color: var(--gray-500);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .stat-mini {
+    background: var(--gray-50);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .stat-mini .num {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .stat-mini .lbl {
+    font-size: 10px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* SECTION TITLE */
+  .section {
+    padding: 100px 0;
+  }
+
+  .section.alt {
+    background: var(--gray-50);
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .section-sub {
+    font-size: 18px;
+    color: var(--gray-500);
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  /* VALUE PROPOSITION 2 columns */
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .value-grid { grid-template-columns: 1fr; }
+  }
+
+  .value-card {
+    background: white;
+    padding: 36px;
+    border-radius: 20px;
+    border: 1px solid var(--gray-100);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15,23,42,0.08);
+  }
+
+  .value-card.ailillu { border-top: 4px solid var(--secondary); }
+  .value-card.poster { border-top: 4px solid var(--primary); }
+
+  .value-card h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .value-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+
+  .value-card.ailillu .value-tag { background: rgba(99,102,241,0.1); color: var(--secondary); }
+  .value-card.poster .value-tag { background: rgba(255,90,31,0.1); color: var(--primary); }
+
+  .value-list {
+    list-style: none;
+    margin-top: 24px;
+  }
+
+  .value-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+  }
+
+  .value-list li:last-child { border-bottom: none; }
+
+  .value-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .value-list li strong {
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .value-list li span {
+    color: var(--gray-500);
+    font-size: 13px;
+  }
+
+  /* WORKFLOW */
+  .workflow {
+    position: relative;
+  }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .step {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--gray-100);
+    position: relative;
+    transition: transform 0.3s;
+  }
+
+  .step:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .step h4 {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .step p {
+    color: var(--gray-500);
+    font-size: 14px;
+  }
+
+  /* METRICS */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .metrics-grid { grid-template-columns: 1fr; }
+  }
+
+  .metric {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 32px;
+    text-align: center;
+    border: 1px solid var(--gray-100);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metric::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient);
+  }
+
+  .metric-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+  }
+
+  .metric-num {
+    font-size: 56px;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+
+  .metric-desc {
+    color: var(--gray-700);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .metric-note {
+    color: var(--gray-500);
+    font-size: 13px;
+  }
+
+  /* USE CASES */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .case {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid var(--gray-100);
+    transition: all 0.3s;
+  }
+
+  .case:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15,23,42,0.06);
+  }
+
+  .case-emoji {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  .case h4 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .case-quote {
+    font-size: 15px;
+    color: var(--gray-700);
+    font-style: italic;
+    padding: 16px;
+    background: var(--gray-50);
+    border-radius: 12px;
+    border-left: 3px solid var(--primary);
+    margin-bottom: 16px;
+  }
+
+  .case-impact {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* INTEGRATION DIAGRAM */
+  .diagram {
+    background: white;
+    border-radius: 24px;
+    padding: 56px 32px;
+    margin-top: 40px;
+    border: 1px solid var(--gray-100);
+    text-align: center;
+  }
+
+  .frontend-box {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(99,102,241,0.05));
+    border: 2px solid var(--secondary);
+    border-radius: 16px;
+    padding: 20px 36px;
+    margin-bottom: 16px;
+  }
+
+  .frontend-box .label {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--secondary);
+  }
+
+  .frontend-box .sub {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 4px;
+  }
+
+  .arrow-line {
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--secondary), var(--primary));
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .arrow-label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-500);
+    background: white;
+    padding: 2px 8px;
+    border-radius: 100px;
+    border: 1px solid var(--gray-100);
+  }
+
+  .core-box {
+    background: linear-gradient(135deg, rgba(255,90,31,0.05), rgba(255,90,31,0.02));
+    border: 2px solid var(--primary);
+    border-radius: 20px;
+    padding: 28px;
+    max-width: 600px;
+    margin: 16px auto 0;
+  }
+
+  .core-label {
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+
+  .modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .module {
+    background: white;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .module-icon {
+    font-size: 16px;
+  }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .price-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid var(--gray-100);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .price-check {
+    width: 36px;
+    height: 36px;
+    background: rgba(16,185,129,0.1);
+    color: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  .price-card h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .price-card p {
+    color: var(--gray-500);
+    font-size: 14px;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--gradient);
+    border-radius: 32px;
+    padding: 64px 48px;
+    color: white;
+    text-align: center;
+    margin: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+
+  .cta-section > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-section p {
+    font-size: 18px;
+    opacity: 0.92;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-section .btn-primary {
+    background: white;
+    color: var(--primary);
+  }
+
+  .cta-section .btn-secondary {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .cta-section .btn-secondary:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: white;
+  }
+
+  /* FAQ */
+  .faq-list {
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faq-item {
+    background: white;
+    border: 1px solid var(--gray-100);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .faq-item:hover { border-color: var(--gray-300); }
+
+  .faq-q {
+    padding: 20px 24px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 24px;
+    color: var(--primary);
+    font-weight: 400;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-q::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-a {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: var(--gray-700);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .faq-item.open .faq-a {
+    padding: 0 24px 24px;
+    max-height: 300px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: var(--gray-300);
+    padding: 60px 0 24px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .footer-brand {
+    color: white;
+  }
+
+  .footer-brand .logo {
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+    color: var(--gray-300);
+    line-height: 1.6;
+  }
+
+  .footer-col h5 {
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--gray-300);
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: white; }
+
+  .footer-bottom {
+    padding-top: 24px;
+    border-top: 1px solid var(--gray-700);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    font-size: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* SVG ILLUSTRATIONS */
+  .kiosk-svg {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">
+      <div class="logo-dot">P+A</div>
+      <span>Poster <span style="color:var(--gray-500);font-weight:400;">×</span> Ailillu</span>
+    </div>
+    <div class="nav-links">
+      <a href="#value">Можливості</a>
+      <a href="#workflow">Як працює</a>
+      <a href="#cases">Кейси</a>
+      <a href="#pricing">Ціни</a>
+      <div class="lang-switch">
+        <a href="poster-ailillu-landing.html" class="lang-link active">UA</a>
+        <a href="poster-ailillu-landing-ru.html" class="lang-link">RU</a>
+        <a href="poster-ailillu-landing-kz.html" class="lang-link">KZ</a>
+      </div>
+      <a href="#cta" class="btn btn-primary">Демо 15 хв</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      ✨ Ресторан 2026 • AI + POS у одному стеку
+    </div>
+    <h1>
+      Гості замовляють.<br>
+      Ви <span class="gradient">управляєте.</span><br>
+      Гості повертаються.
+    </h1>
+    <p class="hero-sub">
+      Ailillu — це AI-асистент для гостей вашого ресторану. Poster — це операційне ядро бізнесу. Разом вони закривають увесь шлях клієнта: від першого «Привіт, що порекомендуєте?» до повторного візиту наступного тижня.
+    </p>
+    <div class="hero-cta">
+      <a href="#cta" class="btn btn-primary">Замовити демо</a>
+      <a href="#workflow" class="btn btn-secondary">Як це працює →</a>
+    </div>
+
+    <!-- Two screens side by side -->
+    <div class="hero-mockup">
+      <!-- Ailillu Side -->
+      <div class="screen">
+        <div class="screen-header">
+          <div class="screen-dots">
+            <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+          </div>
+          <span style="margin-left:8px;">🤖 Ailillu Kiosk • Гість</span>
+        </div>
+        <div class="screen-body ailillu-chat">
+          <div class="ai-bubble">Привіт! Я Ailillu. Що замовлятимемо сьогодні? 😊</div>
+          <div class="user-bubble">Хочу щось гостре, але не дуже важке</div>
+          <div class="ai-bubble">Рекомендую <strong>Том Ям</strong> з креветками — улюблене у наших гостей. Додам свіжий лимонад?</div>
+          <div class="user-bubble">Так, і ще десерт</div>
+          <div class="ai-bubble">Чізкейк манго — хіт сьогодні. Підтверджую?</div>
+          <div class="order-summary">
+            <div class="row"><span>Том Ям з креветками</span><span>4 200 ₸</span></div>
+            <div class="row"><span>Лимонад свіжий</span><span>1 200 ₸</span></div>
+            <div class="row"><span>Чізкейк манго</span><span>2 100 ₸</span></div>
+            <div class="row total"><span>Всього</span><span>7 500 ₸</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poster Side -->
+      <div class="screen">
+        <div class="screen-header">
+          <div class="screen-dots">
+            <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+          </div>
+          <span style="margin-left:8px;">📊 Poster • Менеджер</span>
+        </div>
+        <div class="screen-body poster-dash">
+          <h4>
+            Замовлення зараз
+            <span class="live-pill">LIVE</span>
+          </h4>
+          <div class="order-card new">
+            <div class="order-top"><span>#1247 • Стіл 4</span><span style="color:var(--accent);">7 500 ₸</span></div>
+            <div class="order-meta">Том Ям, лимонад, чізкейк • щойно з Ailillu</div>
+          </div>
+          <div class="order-card cooking">
+            <div class="order-top"><span>#1246 • Кіоск</span><span>5 800 ₸</span></div>
+            <div class="order-meta">Готується • кухня 6 хв</div>
+          </div>
+          <div class="order-card">
+            <div class="order-top"><span>#1245 • Стіл 2</span><span>3 200 ₸</span></div>
+            <div class="order-meta">Видано • оплачено</div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-mini">
+              <div class="num">47</div>
+              <div class="lbl">Замовл.</div>
+            </div>
+            <div class="stat-mini">
+              <div class="num">+18%</div>
+              <div class="lbl">AOV</div>
+            </div>
+            <div class="stat-mini">
+              <div class="num">312k</div>
+              <div class="lbl">Виручка</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPOSITION -->
+<section id="value" class="section alt">
+  <div class="container">
+    <span class="section-eyebrow">Дві сторони, одна система</span>
+    <h2 class="section-title">Гість бачить асистента.<br>Ви бачите бізнес.</h2>
+    <p class="section-sub">Ailillu — це обличчя вашого ресторану перед гостем. Poster — мозок операцій усередині. Між ними — нативна інтеграція, без костилів і ETL.</p>
+
+    <div class="value-grid">
+      <div class="value-card ailillu">
+        <h3>🤖 Ailillu <span class="value-tag">Customer-facing</span></h3>
+        <p style="color:var(--gray-500);font-size:15px;">Сторона гостя — кіоск, мобільний додаток, голосовий асистент.</p>
+        <ul class="value-list">
+          <li>
+            <span class="value-icon">🤖</span>
+            <div><strong>AI-асистент у кіоску чи додатку</strong><span>Працює 24/7, без втоми та помилок</span></div>
+          </li>
+          <li>
+            <span class="value-icon">💬</span>
+            <div><strong>Природна мова замовлень</strong><span>Казахська, українська, російська, англійська</span></div>
+          </li>
+          <li>
+            <span class="value-icon">🎯</span>
+            <div><strong>Персоналізовані рекомендації</strong><span>На основі історії, часу дня, погоди</span></div>
+          </li>
+          <li>
+            <span class="value-icon">💳</span>
+            <div><strong>Миттєва оплата</strong><span>Kaspi, Halyk, Apple/Google Pay, картки</span></div>
+          </li>
+          <li>
+            <span class="value-icon">📊</span>
+            <div><strong>Поведінкові дані гостей</strong><span>Що дивляться, що відмовляють, що люблять</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="value-card poster">
+        <h3>🍽️ Poster <span class="value-tag">Business-facing</span></h3>
+        <p style="color:var(--gray-500);font-size:15px;">Сторона бізнесу — POS, склад, кухня, фінанси, аналітика.</p>
+        <ul class="value-list">
+          <li>
+            <span class="value-icon">📋</span>
+            <div><strong>Управління меню в реал-тайм</strong><span>Стоп-листи, ціни, склад — миттєво до Ailillu</span></div>
+          </li>
+          <li>
+            <span class="value-icon">👥</span>
+            <div><strong>CRM для повторних замовлень</strong><span>Телефон гостя — і ви знаєте все</span></div>
+          </li>
+          <li>
+            <span class="value-icon">📊</span>
+            <div><strong>Аналітика продажів & margin</strong><span>Не лише виручка — справжній прибуток</span></div>
+          </li>
+          <li>
+            <span class="value-icon">🔄</span>
+            <div><strong>Інтеграція з доставкою/касою</strong><span>Glovo, Wolt, Bolt Food, Yandex Eats</span></div>
+          </li>
+          <li>
+            <span class="value-icon">📈</span>
+            <div><strong>ROI на кожне замовлення</strong><span>Знаєте, який канал приносить більше</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section id="workflow" class="section">
+  <div class="container">
+    <span class="section-eyebrow">Як це працює</span>
+    <h2 class="section-title">7 кроків від «Привіт» до повернення гостя</h2>
+    <p class="section-sub">Кожен крок продуманий так, щоб гість відчував зручність, а ви — повний контроль над процесом.</p>
+
+    <div class="workflow-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Гість підходить до кіоску</h4>
+        <p>Або відкриває застосунок — Ailillu вітає голосом і пропонує замовити.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>AI розуміє замовлення</h4>
+        <p>Природна мова, з акцентом, зі сленгом. Пропонує додатки та апселли.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Платіж миттєво</h4>
+        <p>Kaspi QR, картка, Apple Pay — обробка 2-3 секунди, без затримок.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Замовлення → Poster</h4>
+        <p>Летить на дисплей кухні через API. Кухар бачить — починає готувати.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h4>Готується → нотифай</h4>
+        <p>Гість отримує SMS чи push: «Ваш Том Ям готовий». Без черг біля каси.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <h4>Дані → CRM</h4>
+        <p>Профіль гостя оновлюється у Poster: смаки, частота, середній чек.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <h4>Наступного разу AI знає</h4>
+        <p>«Привіт, Айдане! Як завжди — Том Ям з лимонадом?» Гість почуває себе вдома.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="section alt">
+  <div class="container">
+    <span class="section-eyebrow">Чому це буде краще</span>
+    <h2 class="section-title">Метрики, які бачать наші партнери</h2>
+    <p class="section-sub">Дані з пілотних запусків у 12 закладах Алмати, Астани й Києва за 6 місяців 2025-2026.</p>
+
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-label">Тиск на сервіс</div>
+        <div class="metric-num">+35%</div>
+        <div class="metric-desc">більше замовлень</div>
+        <div class="metric-note">за рахунок зменшення черг біля каси</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Витяг з гостя</div>
+        <div class="metric-num">+18%</div>
+        <div class="metric-desc">середній чек (AOV)</div>
+        <div class="metric-note">AI пропонує апселли в потрібний момент</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Утримання</div>
+        <div class="metric-num">+42%</div>
+        <div class="metric-desc">повторних візитів</div>
+        <div class="metric-note">персоналізація + CRM-комунікації</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="cases" class="section">
+  <div class="container">
+    <span class="section-eyebrow">Кейси</span>
+    <h2 class="section-title">Ресторан, кафе чи фуд-корт — підходить кожному</h2>
+    <p class="section-sub">Три реальні сценарії, де Poster + Ailillu вже працюють і приносять результат.</p>
+
+    <div class="cases-grid">
+      <div class="case">
+        <div class="case-emoji">📱</div>
+        <h4>Ресторан «Ак-Сарай», Алмати</h4>
+        <div class="case-quote">«Замовлення без чергування біля каси, онлайн-доставка через Poster — і ми обслуговуємо втричі більше за обід.»</div>
+        <div class="case-impact">↗ -70% часу на замовлення, +3× замовлень/день</div>
+      </div>
+      <div class="case">
+        <div class="case-emoji">🏪</div>
+        <h4>Кафе у ТЦ «Mega»</h4>
+        <div class="case-quote">«Люди в спішці замовляють у кіоску Ailillu й одразу розраховуються. Касир тепер веде сервіс, а не пробиває чеки.»</div>
+        <div class="case-impact">↗ Касир переведений у сервіс, +28% задоволеності</div>
+      </div>
+      <div class="case">
+        <div class="case-emoji">🍜</div>
+        <h4>Фуд-корт «Esentai»</h4>
+        <div class="case-quote">«AI персоналізує меню за часом дня та історією гостя — і обідній рш виріс без додаткових витрат на маркетинг.»</div>
+        <div class="case-impact">↗ +24% продажів у обідній час</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATION DIAGRAM -->
+<section class="section alt">
+  <div class="container">
+    <span class="section-eyebrow">Архітектура</span>
+    <h2 class="section-title">Один API — повна інтеграція</h2>
+    <p class="section-sub">Ailillu підключається до Poster через офіційне API. Жодних чорних скриньок, жодних окремих баз даних — все працює як єдина система.</p>
+
+    <div class="diagram">
+      <div class="frontend-box">
+        <div class="label">🤖 Ailillu</div>
+        <div class="sub">Кіоск • Mobile App • Voice Assistant</div>
+      </div>
+      <div class="arrow-line">
+        <span class="arrow-label">REST API</span>
+      </div>
+      <div class="core-box">
+        <div class="core-label">⚡ Poster Core</div>
+        <div class="modules">
+          <div class="module"><span class="module-icon">💰</span> POS / Каса</div>
+          <div class="module"><span class="module-icon">📋</span> Menu Mgmt</div>
+          <div class="module"><span class="module-icon">🍳</span> Kitchen Display</div>
+          <div class="module"><span class="module-icon">👥</span> CRM</div>
+          <div class="module"><span class="module-icon">💳</span> Payment Gateway</div>
+          <div class="module"><span class="module-icon">📦</span> Inventory</div>
+          <div class="module"><span class="module-icon">📊</span> Analytics</div>
+          <div class="module"><span class="module-icon">🚚</span> Delivery API</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <div class="container">
+    <span class="section-eyebrow">Економіка</span>
+    <h2 class="section-title">Чому це дешевше, ніж працювати «по-старому»</h2>
+    <p class="section-sub">Не нова стаття витрат — а спосіб скоротити нинішні. Ось три прості точки економії.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-check">✓</div>
+        <div>
+          <h4>Без касирів на замовлення</h4>
+          <p>Економія 2–3 ЗП на місяць. Команда фокусується на сервісі, а не на пробиванні чеків.</p>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-check">✓</div>
+        <div>
+          <h4>+18% замовлень на той самий floor space</h4>
+          <p>Більше доходу без розширення приміщення. Кіоск займає 0,8 м² — обслуговує як два касири.</p>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-check">✓</div>
+        <div>
+          <h4>Перший місяць Ailillu — БЕЗПЛАТНО</hp4>
+          <p>Плюс знижка 30% на лізинг Poster-обладнання (термопринтер, дисплей кухні, термінал).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="container">
+  <div class="cta-section">
+    <h2>Готові запустити ресторан у форматі 2026?</h2>
+    <p>Покажемо живу систему за 15 хвилин. Розрахуємо ROI під ваш бізнес. Без зобов'язань.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-primary">📞 Замовити демо 15 хв</a>
+      <a href="#" class="btn btn-secondary">📄 Завантажити прайс-лист</a>
+      <a href="#" class="btn btn-secondary">✉️ Зв'язатися з нами</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt">
+  <div class="container">
+    <span class="section-eyebrow">Відповіді</span>
+    <h2 class="section-title" style="text-align:center;">Часті питання</h2>
+    <p class="section-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Те, що запитують власники ресторанів найчастіше.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Чи будуть гості користуватися кіоском?</div>
+        <div class="faq-a">
+          За даними Aitu, 78% молодого населення Казахстану вже звикло до AI-інтерфейсів (банкінг, маркетплейси, e-gov). У наших пілотних запусках 91% гостей пробують Ailillu хоча б раз — і 73% повертаються до кіоску при наступному візиті. Голосовий режим робить досвід природним навіть для старшої аудиторії.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Що, якщо система впаде?</div>
+        <div class="faq-a">
+          Ailillu працює у offline-режимі — замовлення приймаються локально й синхронізуються з Poster, щойно з'являється зв'язок. Poster має резервні мобільні термінали, які працюють незалежно від кіоску. Жоден гість не залишиться без обслуговування.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Чи не порушу я приватність гостей?</div>
+        <div class="faq-a">
+          Ailillu та Poster дотримуються GDPR та локальних законів КЗ і України про захист даних. Гість бачить прозорі Terms & Privacy перед першим замовленням. Збираємо лише ті дані, які напряму покращують його досвід — і він може стерти свій профіль одним натисканням.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Скільки часу на запуск у моєму закладі?</div>
+        <div class="faq-a">
+          Стандартний запуск — 5–7 робочих днів: підключення Poster (1-2 дні), інтеграція меню в Ailillu (2 дні), тестовий період з персоналом (2-3 дні), офіційний старт. Якщо у вас уже є Poster — ще швидше.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">А якщо я не у Казахстані?</div>
+        <div class="faq-a">
+          Працюємо в Україні, Казахстані, Узбекистані, Грузії та інших ринках Східної Європи й Центральної Азії. Локалізація мови, валюти, платіжних систем та податкового законодавства — наша відповідальність.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-simple">
+      <div class="logo" style="justify-content:center;margin-bottom:20px;">
+        <div class="logo-dot">P+A</div>
+        <span style="color:white;">Poster × Ailillu</span>
+      </div>
+      <p style="text-align:center;max-width:540px;margin:0 auto 24px;font-size:15px;color:var(--gray-300);line-height:1.7;">
+        Made for HoReca в КЗ та Україні командами, які знають ваш бізнес зсередини. Від замовлення до повторного візиту — все в одному стеку.
+      </p>
+      <div class="badges" style="justify-content:center;margin-bottom:32px;">
+        <span class="badge">🔒 GDPR</span>
+        <span class="badge">🇰🇿 КЗ Compliance</span>
+        <span class="badge">🇺🇦 UA</span>
+        <span class="badge">⚡ 99.9% Uptime</span>
+      </div>
+      <div style="text-align:center;color:var(--gray-300);font-size:13px;padding-top:24px;border-top:1px solid var(--gray-700);">
+        © 2026 Poster + Ailillu. Зроблено для ресторанів, які думають вперед.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('open');
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
